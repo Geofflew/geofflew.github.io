@@ -1,0 +1,8 @@
+{
+  "name": "geoffrey-lew-field-notes",
+  "private": true,
+  "type": "module",
+  "license": "UNLICENSED",
+  "scripts": { "build": "node build.mjs" },
+  "dependencies": { "marked": "17.0.1" }
+}

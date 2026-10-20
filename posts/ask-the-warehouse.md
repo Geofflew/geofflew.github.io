@@ -1,0 +1,67 @@
+# A good answer starts before the query
+
+*An LLM can translate a question into SQL. A useful question-answering system also needs to carry business meaning into that query—and make clear what the answer can support.*
+
+“Which deals did we win last year that included our forecasting product?”
+
+The question sounds straightforward. A sales manager wants a list of purchases, perhaps to understand which customers to approach about a related feature. The database has deal names, sales notes, dates, and products. There is enough information to answer.
+
+But suppose the forecasting product is sold under the name Horizon. Searching deal names and notes for “forecasting” finds conversations about the capability, including deals where it was discussed but never purchased. Meanwhile, a deal that lists Horizon among its products may never contain the word “forecasting.”
+
+The resulting SQL can be valid, permitted, and wrong. The missing step is the connection between what the person means and how the business records it. Building a useful assistant means making that connection explicit, delivering it to the model, and preserving it through the answer.
+
+## Give the planner the information the question needs
+
+The LLM's first role is a **planner**: it receives the question and relevant context, then proposes SQL. Alongside the query, it can state assumptions and identify parts of the request that the available data cannot answer.
+
+For the forecasting question, the context needs to establish two things: Horizon is the product name, and the products included in a deal are evidence of a purchase. Sales notes are evidence of a conversation. With that distinction, the planner can filter won deals by date and inspect their product lists.
+
+Putting this explanation in a documentation file is only the beginning. The planner sees the material supplied in its prompt, not every document the application stores. Retrieval selects a small portion of that documentation to keep the request focused. Selection and shortening can remove the very sentence that makes the question answerable.
+
+Consider a retrieval process that ranks database views by words shared with the question. It keeps descriptions for highly ranked views and only names and types for lower-ranked ones. It may also omit column descriptions unless the question names those columns. A rule attached to the `products` column can disappear because the user said “forecasting deals,” without saying “products.”
+
+This suggests a separate place for business concepts. Associate the phrases people use with the relevant column and its interpretation. “Forecasting deal” can select the rule about Horizon and point to `deals.products`. That rule is included independently of the view's ranking.
+
+The useful test is therefore whether the rule reaches the rendered prompt for the actual question. A retrieval trace can explain which wording selected it, or why it was omitted. That makes a failed answer something we can investigate: did the planner misunderstand the information, or was it never given the information?
+
+## Decide which meanings belong in the database
+
+Some context translates vocabulary. Other context describes a calculation that several questions will need. Repeating a complicated calculation in prompts asks the planner to reconstruct it every time.
+
+Account ownership illustrates the difference. Suppose an existing customer's owner is recorded on the account, while a prospect's owner comes from its latest open deal. Someone asking “Who owns this account?” should not need to explain those storage rules.
+
+A shared `account_owner` column can calculate the appropriate person once. The documentation then tells the planner to read that column. This moves a recurring business decision into a maintained definition, while leaving the model to decide how that definition helps answer the question.
+
+The same principle applies to the forecasting question: explain the vocabulary centrally, and expose stable calculations where they can be reused. Context management is an ongoing part of the product. A correction should help the next relevant question without requiring each user to discover and repeat it.
+
+## Separate permission from interpretation
+
+Before a proposed query runs, the application needs to establish that it may run. Parsing SQL into a syntax tree lets it inspect the actual tables, columns, functions, and operations. The permission catalog should come from the full set of approved documentation, independently of the excerpts chosen for a particular prompt.
+
+PostgreSQL can enforce another boundary through a restricted database role and a read-only transaction. A timeout limits how long a query can run. These controls belong to the application and database; asking the model to behave is insufficient enforcement.
+
+Permission still cannot establish that “forecasting” was interpreted correctly. For that, the model can take a second role: a **critic** reviewing the proposed query against the question and context. Planner and critic describe responsibilities; they need not be different LLMs.
+
+Review can be directed toward queries whose structure warrants closer attention, such as joins, aggregations, and date conditions. The forecasting question has date boundaries. A related question—“How many customers first signed in 2024 and later churned?”—also needs care: counting deals won in 2024 can include renewals from customers who signed earlier.
+
+A critic might notice that the query should use `customer_since`, the first-signing date, while still returning an approving verdict. The application needs a defined response to that contradiction. One narrow rule is to request a revision when a note names a recognized column, such as `customer_since`, that the query never reads. The replacement query then passes through the permission checks again.
+
+This is a concrete intervention, not proof of correctness. Simple queries can also misunderstand a question. Evaluation against independently written reference answers remains necessary to discover mistakes that permission checks and review miss.
+
+## Let the reader see how much was answered
+
+After execution, the sales manager still needs to know whether the returned list contains all matching deals. Two different limits can affect what appears on screen.
+
+The database may return only a capped number of rows. To detect overflow, request one extra row beyond the cap. If it arrives, retain the allowed rows and mark the answer partial. The person can narrow the date range or otherwise restrict the question to obtain a smaller result. A download cannot restore records the service never retained.
+
+Alternatively, the service may have all the rows but lack room to include them in the response. In that case, show a subset and provide the retained results in a CSV. State both the total retained and the number displayed. This is a presentation limit, with a different follow-up from an incomplete fetch.
+
+The answer should also carry the SQL that actually ran, the planner's assumptions, missing information, and source load times. These details give a surprising result somewhere to lead: the user or an analyst can inspect its interpretation and evidence instead of starting again from an unexplained number.
+
+## Make understanding reusable
+
+For users, the payoff is being able to ask in familiar business language without becoming experts in the database. Shared context supplies the vocabulary and calculations; clear assumptions and visible gaps make the answer easier to question and refine.
+
+As that context improves, related questions benefit. People spend less effort restating definitions, and a useful answer includes enough evidence to support the next decision. The system becomes more valuable through what it consistently understands about the business, as well as what its LLM can generate.
+
+The [Ask the Warehouse repository](https://github.com/Geofflew/ask-the-warehouse) provides a runnable companion using synthetic data. Its planner and critic use scripted responses to make the surrounding retrieval, SQL checks, revision, and answer handling reproducible without an LLM connection.
