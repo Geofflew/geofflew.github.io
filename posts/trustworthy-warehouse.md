@@ -14,7 +14,7 @@ A useful starting point is to agree on the facts that several questions will nee
 
 One way to organize this work is through three layers. **Bronze** keeps the source records. **Silver** derives shared definitions from them, such as current customers, first contract dates, and counts of active users. **Gold**, the business-facing layer, brings those definitions into views that reports can query.
 
-![Source records become shared definitions and business-facing views; checks preserve meaning and make freshness and date-order failures actionable.](/assets/warehouse-flow.svg)
+![Separate source systems become retained records, shared definitions, and business-facing views.](/assets/warehouse-flow.svg)
 
 For example, a renewal gives a customer a new contract start date. It does not make them a new customer. Silver exposes both the current contract date and the original signing date, so a report can choose the one its question needs. Other reports can reuse that decision rather than rebuilding the same history.
 

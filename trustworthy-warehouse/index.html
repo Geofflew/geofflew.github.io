@@ -11,7 +11,7 @@
 <h2>Give related questions a shared foundation</h2>
 <p>A useful starting point is to agree on the facts that several questions will need. “Current customer” should not depend on which report someone opens. Nor should every report have to reconstruct a customer&#39;s contract history before it can calculate how long that relationship has lasted.</p>
 <p>One way to organize this work is through three layers. <strong>Bronze</strong> keeps the source records. <strong>Silver</strong> derives shared definitions from them, such as current customers, first contract dates, and counts of active users. <strong>Gold</strong>, the business-facing layer, brings those definitions into views that reports can query.</p>
-<p><img src="/assets/warehouse-flow.svg" alt="Source records become shared definitions and business-facing views; checks preserve meaning and make freshness and date-order failures actionable."></p>
+<p><img src="/assets/warehouse-flow.svg" alt="Separate source systems become retained records, shared definitions, and business-facing views."></p>
 <p>For example, a renewal gives a customer a new contract start date. It does not make them a new customer. Silver exposes both the current contract date and the original signing date, so a report can choose the one its question needs. Other reports can reuse that decision rather than rebuilding the same history.</p>
 <p>The layers are useful because of the distinctions they preserve. One particularly consequential distinction appears when a report tries to identify customers who have not connected the product to anything.</p>
 <h2>Establish what “nothing found” means</h2>

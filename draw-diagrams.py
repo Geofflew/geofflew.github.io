@@ -37,7 +37,7 @@ diagram('question-flow','Carry meaning into the answer','Question-answering flow
  ('Question','“Which deals included our forecasting product?”','A business question needs business definitions.'),
  ('Context + LLM planner','Forecasting means the product named Horizon','Select relevant context; propose SQL and state assumptions.'),
  ('Application checks + selected critic review','Check access, then examine interpretation','If revised, check the replacement SQL before it runs.'),
- ('Database execution','Run the checked query with restricted access','Read-only execution · timeout · one row beyond the fetch cap'),
+ ('Database execution','Run the checked query with restricted access','Read-only execution · timeout · overflow detection at the fetch cap'),
  ('Answer','Show the result and what it covers','SQL · assumptions · missing data · partial-result status')
 ], 'The critic reviews selected query shapes; permission is not correctness.')
 
