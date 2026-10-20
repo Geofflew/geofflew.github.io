@@ -2,6 +2,7 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { marked } from 'marked';
 
 const entries = [
+  ['conversation-as-an-app', 'Conversational interfaces', 'Turn an answer into an interactive view of the records behind it.'],
   ['trustworthy-warehouse', 'Data systems', 'Shared definitions that preserve what customer data means.'],
   ['ask-the-warehouse', 'AI and data', 'Carry business context from a question into a useful, inspectable answer.'],
   ['automation-system', 'Automation', 'Carry requests through planning, approval, execution, and recovery.'],
