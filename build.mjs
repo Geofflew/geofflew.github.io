@@ -24,7 +24,7 @@ for (const [slug, category, description] of entries) {
   posts.push({ slug, category, description, title, minutes });
 }
 const listing = posts.map((p, i) => `<section class="entry"><span class="number">0${i + 1}</span><div><div class="eyebrow">${p.category} · ${p.minutes} min read</div><h2><a href="/${p.slug}/">${escape(p.title)}</a></h2><p>${p.description}</p><a class="button" href="/${p.slug}/">Read the essay →</a><a class="repo" href="https://github.com/Geofflew/${p.slug}">Code / ${p.slug} ↗</a></div></section>`).join('\n');
-const home = `<aside><div class="eyebrow">A working journal</div><h2 class="author">Geoffrey<br>Lew</h2><p>Notes on building data systems and automation that people can use.</p><a href="https://github.com/Geofflew">Code ↗</a></aside><div class="writing"><div class="eyebrow">Ideas with implementations</div><h1>How it works.<br><em>Why it matters.</em></h1>${listing}</div>`;
+const home = `<aside><div class="eyebrow">A working journal</div><h2 class="author">Geoffrey<br>Lew</h2><p>Notes on building data systems and automation that people can use.</p><a href="https://github.com/Geofflew">Code ↗</a></aside><div class="writing"><h1>How it works.<br><em>Why it matters.</em></h1>${listing}</div>`;
 await writeFile('index.html', shell('Field notes', 'Engineering field notes on data, AI, and automation by Geoffrey Lew.', home));
 await writeFile('.nojekyll', '');
 console.log('Built homepage and three full articles.');
