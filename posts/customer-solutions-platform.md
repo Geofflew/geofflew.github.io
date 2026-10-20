@@ -98,8 +98,14 @@ This assignment workflow supports the person's choice; a report flag does not au
 <figcaption><strong>Bot activity.</strong> Follow the proposed assignments through confirmation to the recorded outcome. <a href="/assets/customer-screens/bot.png">Open full size ↗</a></figcaption>
 </figure>
 
-For the customer team, the benefit is a more focused review. Deliberate product choices need not become recurring false alarms. Meaningful deterioration need not disappear inside an unchanged color. A familiar list can reveal that its membership has changed, and a concern without an owner or next step can be resolved before the meeting ends.
+## Benefits for the people using it
 
-The platform helps people spend their attention on customers rather than on reconstructing what a dashboard meant.
+The first benefit is less preparation before a customer conversation. Product use, relationship evidence, and follow-up responsibilities are available together, so someone can understand the account without reconstructing its story across reports and notes.
+
+That context also makes help more relevant. A customer who deliberately uses another tool should not repeatedly receive adoption advice for a feature they have chosen to exclude. A customer whose usage is deteriorating deserves attention even if their account still has the same color on a dashboard. Explaining both the score and its movement helps people distinguish those situations.
+
+Saved groups make that attention repeatable without freezing it in time. Seeing who entered or left a group lets people adjust outreach as customer circumstances change. Visible owners and next steps then make gaps in follow-up easier to resolve, while confirmed assignments show what responsibility was actually recorded.
+
+The result is a clearer path from understanding a customer to choosing useful help and coordinating who will provide it.
 
 The [Customer Solutions Platform repository](https://github.com/Geofflew/customer-solutions-platform) provides runnable calculations, assignment handlers, tests, and generated views over synthetic records. It is a companion for studying these decisions; its pages illustrate the workflows rather than connecting to a live customer system.
