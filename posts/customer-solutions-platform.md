@@ -8,7 +8,7 @@ The information exists, but it arrives in different forms. Product activity reco
 
 Consider a customer using accounting software. They complete reconciliations inside the product, but keep their month-end checklist in another tool. A dashboard showing little checklist activity is correct about the activity and potentially wrong about what it means. Someone reviewing the account needs to know whether that is a problem before they arrange a training session.
 
-A customer solutions platform should carry that distinction all the way from the records to the next decision.
+A customer solutions platform should carry that distinction all the way from the records to the next decision. The design connects product use to an activation score, that score to a custom customer segment, and the segment to an activation play—a repeatable sequence of help and follow-up. The value comes from those components working together.
 
 The six screens below follow that work, using synthetic customer records. Select any screen to open the full-size image.
 
@@ -50,9 +50,15 @@ The same discipline applies to the overall trend. If new accounts enter the aver
 <figcaption><strong>Weekly status.</strong> Start with what changed, then see who is responsible and what is meant to happen next. <a href="/assets/customer-screens/status-report.png">Open full size ↗</a></figcaption>
 </figure>
 
-## Keep customer lists open to review
+## Connect custom segments to the next action
 
-A weekly review may also organize follow-up around a group: customers approaching renewal, or customers showing strong adoption and recent executive engagement. Saving that rule avoids reconstructing the list each time. It does not make the list permanent.
+An activation score is more useful when it helps select a response. A **custom segment** lets someone save a rule over customer signals—for example, a measured activation score below 70, expressed as the inverse of an “activation 70+” signal. Other segments might identify customers approaching renewal or showing strong adoption and recent executive engagement.
+
+Connect the low-activation segment to an **activation play**: a repeatable sequence of follow-up. An owner reviews the feature breakdown, identifies what is blocking adoption, offers relevant help, and checks progress later. Missing integration setup might call for technical assistance; an enabled feature with no use might call for a guided session. A deliberately excluded feature should not generate the same advice.
+
+The connection is **product use → activation score → custom segment → activation play → follow-up**. Each component supplies something the next one needs: evidence, an interpretation, a customer selection, and a response. Segment entry can become a trigger for a play proposal or task, with approval where the action needs it. That link to play execution is a design extension to the implemented membership review and assignment workflow. That is how the platform can turn changing customer context into coordinated help.
+
+Saving the selection rule avoids reconstructing the list each time. It does not make the list permanent.
 
 Suppose a group contains five accounts when reviewed and five a month later. Four may have left and four others entered. Showing “five customers” conceals almost everything that matters to the person preparing outreach.
 
@@ -104,8 +110,8 @@ The first benefit is less preparation before a customer conversation. Product us
 
 That context also makes help more relevant. A customer who deliberately uses another tool should not repeatedly receive adoption advice for a feature they have chosen to exclude. A customer whose usage is deteriorating deserves attention even if their account still has the same color on a dashboard. Explaining both the score and its movement helps people distinguish those situations.
 
-Saved groups make that attention repeatable without freezing it in time. Seeing who entered or left a group lets people adjust outreach as customer circumstances change. Visible owners and next steps then make gaps in follow-up easier to resolve, while confirmed assignments show what responsibility was actually recorded.
+Custom segments connect that understanding to repeatable help: a low-activation group can select an activation play, while its feature evidence helps the owner tailor the response. Seeing who entered or left the group lets people adjust outreach as customer circumstances change. Visible owners and next steps then make gaps in follow-up easier to resolve, while confirmed assignments show what responsibility was actually recorded.
 
 The result is a clearer path from understanding a customer to choosing useful help and coordinating who will provide it.
 
-The [Customer Solutions Platform repository](https://github.com/Geofflew/customer-solutions-platform) provides runnable calculations, assignment handlers, tests, and generated views over synthetic records. It is a companion for studying these decisions; its pages illustrate the workflows rather than connecting to a live customer system.
+The [Customer Solutions Platform repository](https://github.com/Geofflew/customer-solutions-platform) provides runnable calculations, assignment handlers, tests, and generated views over synthetic records. It implements configurable rules over registered signals, membership review, and confirmed assignments. Segment-triggered play execution is a design extension; the generated pages illustrate the workflows over synthetic records.
