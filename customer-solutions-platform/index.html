@@ -3,12 +3,13 @@
 <title>A customer platform should help someone decide what to do next · Geoffrey Lew</title><meta name="description" content="Turn customer records into explainable signals, meaningful changes, and specific follow-up.">
 <link rel="stylesheet" href="/assets/style.css"><link rel="icon" href="data:,">
 </head><body><div class="page"><header><a class="brand" href="/"><span>g.</span> geoffrey_lew / notes</a><nav aria-label="Main navigation"><a href="/">Writing</a><a href="https://github.com/Geofflew">GitHub ↗</a></nav></header>
-<main class="reading"><a class="back" href="/">← All field notes</a><div class="eyebrow">Customer systems · 7 min read</div><article><h1>A customer platform should help someone decide what to do next</h1>
+<main class="reading"><a class="back" href="/">← All field notes</a><div class="eyebrow">Customer systems · 9 min read</div><article><h1>A customer platform should help someone decide what to do next</h1>
 <p><em>A score can summarize an account without explaining it. A useful customer platform connects the evidence, the changes worth noticing, and the people responsible for following up.</em></p>
 <p>At a weekly customer review, the team needs to decide where to spend its attention. Which customers are struggling to adopt the product? Has something deteriorated since last week? Who will follow up?</p>
 <p>The information exists, but it arrives in different forms. Product activity records what people completed. Feature settings explain what they intended to use. Meetings and notes describe the relationship. Account records identify the person responsible. Bringing these together gives the team a place to work; deciding how to interpret and present them determines whether that place is useful.</p>
 <p>Consider a customer using accounting software. They complete reconciliations inside the product, but keep their month-end checklist in another tool. A dashboard showing little checklist activity is correct about the activity and potentially wrong about what it means. Someone reviewing the account needs to know whether that is a problem before they arrange a training session.</p>
 <p>A customer solutions platform should carry that distinction all the way from the records to the next decision.</p>
+<p>The six screens below follow that work, using synthetic customer records. Select any screen to open the full-size image.</p>
 <p><img src="/assets/customer-solutions-flow.svg" alt="Customer records support account understanding, review of changes, and human decisions about follow-up and confirmed assignments."></p>
 <h2>Establish what the score is measuring</h2>
 <p>Suppose the product offers a close checklist, reconciliations, and variance review. Averaging their completion rates seems like a reasonable measure of adoption. But a checklist intentionally disabled by the customer should not lower the score. Nor should variance review if it requires an integration that the customer does not have.</p>
@@ -16,6 +17,11 @@
 <p>This is a modeling decision with a practical consequence. The customer team can see “checklist managed elsewhere” and spend its time on another concern. It does not need to rediscover the customer&#39;s arrangement every time the account appears in a report.</p>
 <p>There is a deliberate choice in the opposite direction too. An enabled feature with no recorded usage receives zero and an explanation that no usage was recorded. That keeps a customer who has never started visible for follow-up. It makes the feature settings important: an inaccurate setting can still produce a misleading interpretation, so the reason belongs beside the score where someone can inspect it.</p>
 <p>An activation score can then combine utilization across the included features with complaint and escalation penalties and an allowance for customers still getting started. Selecting closed monthly periods avoids judging a month-end workflow while the work is still in progress. Retaining the component values alongside the total makes the calculation explainable now—and comparable next week.</p>
+<figure class="screen">
+<a href="/assets/customer-screens/activation.png"><img src="/assets/customer-screens/activation.png" alt="Activation screen showing account scores, feature utilization, exclusions, and the reasons features are not scored." loading="lazy"></a>
+<figcaption><strong>Activation.</strong> Read the score alongside feature use and exclusions, so a deliberate product choice is distinguishable from an adoption gap. <a href="/assets/customer-screens/activation.png">Open full size ↗</a></figcaption>
+</figure>
+
 <h2>Explain the movement, not just the position</h2>
 <p>The customer team does not review accounts only once. A familiar score can hide a new problem.</p>
 <p>Suppose an account falls from 64 to 50. Both values sit inside a yellow band, so a page showing only the current color looks unchanged. Yet a fourteen-point fall may be the most consequential development in that week&#39;s review. The team needs the movement and its explanation, not just the latest classification.</p>
@@ -23,16 +29,45 @@
 <p>The contributions add up to the displayed change. This is an accounting of how the calculation moved, not proof that a complaint caused the customer&#39;s behavior. It can tell the reviewer that the complaint penalty changed while product use stayed steady. That directs the conversation toward the complaint rather than another adoption session.</p>
 <p>The report can lead with those changes and show the recorded owner and next step alongside each flagged account. Missing ownership or a missing next step deserves attention of its own: a well-explained concern still goes nowhere if nobody takes responsibility for it.</p>
 <p>The same discipline applies to the overall trend. If new accounts enter the average each week, an apparent improvement may reflect who joined rather than how existing customers are doing. Comparing accounts that have scores in every displayed week holds the population fixed. The tradeoff is explicit: that trend describes the continuing cohort, while newly started accounts need their own place in the review.</p>
+<figure class="screen">
+<a href="/assets/customer-screens/status-report.png"><img src="/assets/customer-screens/status-report.png" alt="Weekly status report with cohort trends, changed accounts, missing owners, and next steps." loading="lazy"></a>
+<figcaption><strong>Weekly status.</strong> Start with what changed, then see who is responsible and what is meant to happen next. <a href="/assets/customer-screens/status-report.png">Open full size ↗</a></figcaption>
+</figure>
+
 <h2>Keep customer lists open to review</h2>
 <p>A weekly review may also organize follow-up around a group: customers approaching renewal, or customers showing strong adoption and recent executive engagement. Saving that rule avoids reconstructing the list each time. It does not make the list permanent.</p>
 <p>Suppose a group contains five accounts when reviewed and five a month later. Four may have left and four others entered. Showing “five customers” conceals almost everything that matters to the person preparing outreach.</p>
 <p>Save the member IDs when someone accepts the list. At the next review, compare the current IDs with that baseline and show entries and exits. Attach the reason for each movement: perhaps an executive meeting brought an account into scope, or someone explicitly excluded it with a recorded explanation. A count becomes a reviewable change in the work the team intends to do.</p>
 <p>The rule also needs to represent missing evidence. If call recording is unavailable for an account, “no competitor mentioned” is not established. A signal can therefore be a match, a non-match, or no-data. One conservative policy is to mark the whole rule as no-data whenever a referenced signal lacks coverage, even if another branch matches. Manual inclusion can express a person&#39;s judgment separately, with their name, date, and reason; exclusions take precedence.</p>
 <p>That separation lets people use information from outside the recorded signals without disguising their decision as an automatic finding.</p>
+<figure class="screen">
+<a href="/assets/customer-screens/segments.png"><img src="/assets/customer-screens/segments.png" alt="Segments screen showing membership changes, saved rules, manual overrides, and signal coverage." loading="lazy"></a>
+<figcaption><strong>Segments.</strong> Review which customers entered or left a saved group, together with the rules and manual decisions behind the change. <a href="/assets/customer-screens/segments.png">Open full size ↗</a></figcaption>
+</figure>
+
+<h2>Inspect the evidence before choosing a response</h2>
+<p>A weekly report or saved group tells someone where to look. The account view should help them decide what to do when they get there. A risk label alone cannot explain whether the concern comes from product use, a change in the relationship, or a sentence in a meeting note.</p>
+<p>Keep those contributions and their source evidence visible. A note mentioning a departing sponsor is a reason to investigate, but counting every keyword hit can amplify an ambiguous remark. Requiring a keyword family to appear under two authors on two days provides a specific corroboration rule. It reduces reliance on one remark without proving that the interpretation is correct. Suggested contacts likewise need to resolve to the customer roster, rather than treating every name mentioned on a call as a customer champion.</p>
+<figure class="screen">
+<a href="/assets/customer-screens/account.png"><img src="/assets/customer-screens/account.png" alt="Account detail screen with risk components, source-note evidence, suggested champions, and rejected contact matches." loading="lazy"></a>
+<figcaption><strong>Account detail.</strong> Inspect the reasons behind a risk assessment and the evidence supporting suggested customer contacts. <a href="/assets/customer-screens/account.png">Open full size ↗</a></figcaption>
+</figure>
+
+<p>Those rules should also be open to evaluation. Comparing risk scores with known outcomes reveals whether the ranking separates customers who later churned from those who stayed. Looking at the individual snapshots where two rules disagree can reveal what an aggregate metric hides. The screen below uses synthetic snapshots to compare counting every note hit with requiring corroboration; its measurements describe that generated dataset.</p>
+<figure class="screen">
+<a href="/assets/customer-screens/backtest.png"><img src="/assets/customer-screens/backtest.png" alt="Churn backtest showing ranking metrics, churn by risk band, and synthetic account snapshots where note-handling rules disagree." loading="lazy"></a>
+<figcaption><strong>Churn backtest.</strong> Compare the rules against outcomes, then inspect the accounts whose classification changed. <a href="/assets/customer-screens/backtest.png">Open full size ↗</a></figcaption>
+</figure>
+
 <h2>Make responsibility visible through the action</h2>
 <p>Once the team selects a follow-up, assigning the work should preserve what it decided. A chat command can identify an account and propose people for onboarding, cash, or owner roles. Resolving the names against known records produces a concrete proposal for review.</p>
 <p>Save that proposal before asking for confirmation. The confirmation names the saved proposal, and a transaction locks it while checking the requester, conversation, and status. Execution applies its stored assignments and reports which were newly written and which were already present. A relayed list with extra changes cannot silently broaden the decision.</p>
 <p>This assignment workflow supports the person&#39;s choice; a report flag does not automatically invoke it. The useful connection is between a concern the person understands and a specific piece of work they choose to organize.</p>
+<figure class="screen">
+<a href="/assets/customer-screens/bot.png"><img src="/assets/customer-screens/bot.png" alt="Bot activity showing an assignment proposal, confirmation checks, an applied result, and the proposal ledger." loading="lazy"></a>
+<figcaption><strong>Bot activity.</strong> Follow the proposed assignments through confirmation to the recorded outcome. <a href="/assets/customer-screens/bot.png">Open full size ↗</a></figcaption>
+</figure>
+
 <p>For the customer team, the benefit is a more focused review. Deliberate product choices need not become recurring false alarms. Meaningful deterioration need not disappear inside an unchanged color. A familiar list can reveal that its membership has changed, and a concern without an owner or next step can be resolved before the meeting ends.</p>
 <p>The platform helps people spend their attention on customers rather than on reconstructing what a dashboard meant.</p>
 <p>The <a href="https://github.com/Geofflew/customer-solutions-platform">Customer Solutions Platform repository</a> provides runnable calculations, assignment handlers, tests, and generated views over synthetic records. It is a companion for studying these decisions; its pages illustrate the workflows rather than connecting to a live customer system.</p>

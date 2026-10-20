@@ -10,6 +10,8 @@ Consider a customer using accounting software. They complete reconciliations ins
 
 A customer solutions platform should carry that distinction all the way from the records to the next decision.
 
+The six screens below follow that work, using synthetic customer records. Select any screen to open the full-size image.
+
 ![Customer records support account understanding, review of changes, and human decisions about follow-up and confirmed assignments.](/assets/customer-solutions-flow.svg)
 
 ## Establish what the score is measuring
@@ -23,6 +25,11 @@ This is a modeling decision with a practical consequence. The customer team can 
 There is a deliberate choice in the opposite direction too. An enabled feature with no recorded usage receives zero and an explanation that no usage was recorded. That keeps a customer who has never started visible for follow-up. It makes the feature settings important: an inaccurate setting can still produce a misleading interpretation, so the reason belongs beside the score where someone can inspect it.
 
 An activation score can then combine utilization across the included features with complaint and escalation penalties and an allowance for customers still getting started. Selecting closed monthly periods avoids judging a month-end workflow while the work is still in progress. Retaining the component values alongside the total makes the calculation explainable now—and comparable next week.
+
+<figure class="screen">
+<a href="/assets/customer-screens/activation.png"><img src="/assets/customer-screens/activation.png" alt="Activation screen showing account scores, feature utilization, exclusions, and the reasons features are not scored." loading="lazy"></a>
+<figcaption><strong>Activation.</strong> Read the score alongside feature use and exclusions, so a deliberate product choice is distinguishable from an adoption gap. <a href="/assets/customer-screens/activation.png">Open full size ↗</a></figcaption>
+</figure>
 
 ## Explain the movement, not just the position
 
@@ -38,6 +45,11 @@ The report can lead with those changes and show the recorded owner and next step
 
 The same discipline applies to the overall trend. If new accounts enter the average each week, an apparent improvement may reflect who joined rather than how existing customers are doing. Comparing accounts that have scores in every displayed week holds the population fixed. The tradeoff is explicit: that trend describes the continuing cohort, while newly started accounts need their own place in the review.
 
+<figure class="screen">
+<a href="/assets/customer-screens/status-report.png"><img src="/assets/customer-screens/status-report.png" alt="Weekly status report with cohort trends, changed accounts, missing owners, and next steps." loading="lazy"></a>
+<figcaption><strong>Weekly status.</strong> Start with what changed, then see who is responsible and what is meant to happen next. <a href="/assets/customer-screens/status-report.png">Open full size ↗</a></figcaption>
+</figure>
+
 ## Keep customer lists open to review
 
 A weekly review may also organize follow-up around a group: customers approaching renewal, or customers showing strong adoption and recent executive engagement. Saving that rule avoids reconstructing the list each time. It does not make the list permanent.
@@ -50,6 +62,29 @@ The rule also needs to represent missing evidence. If call recording is unavaila
 
 That separation lets people use information from outside the recorded signals without disguising their decision as an automatic finding.
 
+<figure class="screen">
+<a href="/assets/customer-screens/segments.png"><img src="/assets/customer-screens/segments.png" alt="Segments screen showing membership changes, saved rules, manual overrides, and signal coverage." loading="lazy"></a>
+<figcaption><strong>Segments.</strong> Review which customers entered or left a saved group, together with the rules and manual decisions behind the change. <a href="/assets/customer-screens/segments.png">Open full size ↗</a></figcaption>
+</figure>
+
+## Inspect the evidence before choosing a response
+
+A weekly report or saved group tells someone where to look. The account view should help them decide what to do when they get there. A risk label alone cannot explain whether the concern comes from product use, a change in the relationship, or a sentence in a meeting note.
+
+Keep those contributions and their source evidence visible. A note mentioning a departing sponsor is a reason to investigate, but counting every keyword hit can amplify an ambiguous remark. Requiring a keyword family to appear under two authors on two days provides a specific corroboration rule. It reduces reliance on one remark without proving that the interpretation is correct. Suggested contacts likewise need to resolve to the customer roster, rather than treating every name mentioned on a call as a customer champion.
+
+<figure class="screen">
+<a href="/assets/customer-screens/account.png"><img src="/assets/customer-screens/account.png" alt="Account detail screen with risk components, source-note evidence, suggested champions, and rejected contact matches." loading="lazy"></a>
+<figcaption><strong>Account detail.</strong> Inspect the reasons behind a risk assessment and the evidence supporting suggested customer contacts. <a href="/assets/customer-screens/account.png">Open full size ↗</a></figcaption>
+</figure>
+
+Those rules should also be open to evaluation. Comparing risk scores with known outcomes reveals whether the ranking separates customers who later churned from those who stayed. Looking at the individual snapshots where two rules disagree can reveal what an aggregate metric hides. The screen below uses synthetic snapshots to compare counting every note hit with requiring corroboration; its measurements describe that generated dataset.
+
+<figure class="screen">
+<a href="/assets/customer-screens/backtest.png"><img src="/assets/customer-screens/backtest.png" alt="Churn backtest showing ranking metrics, churn by risk band, and synthetic account snapshots where note-handling rules disagree." loading="lazy"></a>
+<figcaption><strong>Churn backtest.</strong> Compare the rules against outcomes, then inspect the accounts whose classification changed. <a href="/assets/customer-screens/backtest.png">Open full size ↗</a></figcaption>
+</figure>
+
 ## Make responsibility visible through the action
 
 Once the team selects a follow-up, assigning the work should preserve what it decided. A chat command can identify an account and propose people for onboarding, cash, or owner roles. Resolving the names against known records produces a concrete proposal for review.
@@ -57,6 +92,11 @@ Once the team selects a follow-up, assigning the work should preserve what it de
 Save that proposal before asking for confirmation. The confirmation names the saved proposal, and a transaction locks it while checking the requester, conversation, and status. Execution applies its stored assignments and reports which were newly written and which were already present. A relayed list with extra changes cannot silently broaden the decision.
 
 This assignment workflow supports the person's choice; a report flag does not automatically invoke it. The useful connection is between a concern the person understands and a specific piece of work they choose to organize.
+
+<figure class="screen">
+<a href="/assets/customer-screens/bot.png"><img src="/assets/customer-screens/bot.png" alt="Bot activity showing an assignment proposal, confirmation checks, an applied result, and the proposal ledger." loading="lazy"></a>
+<figcaption><strong>Bot activity.</strong> Follow the proposed assignments through confirmation to the recorded outcome. <a href="/assets/customer-screens/bot.png">Open full size ↗</a></figcaption>
+</figure>
 
 For the customer team, the benefit is a more focused review. Deliberate product choices need not become recurring false alarms. Meaningful deterioration need not disappear inside an unchanged color. A familiar list can reveal that its membership has changed, and a concern without an owner or next step can be resolved before the meeting ends.
 
