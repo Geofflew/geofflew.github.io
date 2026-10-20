@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="940" viewBox="0 0 800 940" role="img" aria-labelledby="title desc">
+<title id="title">HyDE: search with a possible answer</title><desc id="desc">The question becomes hypothetical passages, which are embedded and averaged into a query vector. That vector searches stored transcript chunks. The result contains stored passages, never the hypothetical text presented as evidence.</desc>
+<defs><pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".8" fill="#d8d0c2"/></pattern><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L8 5L1 9" fill="none" stroke="#c2410c" stroke-width="1.4"/></marker></defs>
+<rect width="800" height="940" fill="#faf8f3"/><rect width="800" height="940" fill="url(#dots)"/><rect x="24" width="752" height="940" fill="#faf8f3" stroke="#e4ddd0"/>
+<g font-family="Arial, Helvetica, sans-serif" fill="#1c1a16">
+<text x="48" y="48" font-size="29" font-weight="600">HyDE: search with a possible answer</text><text x="48" y="80" font-size="18" fill="#5b564c">Hypothetical Document Embeddings · illustrative pricing question</text>
+<path d="M24 104H776" stroke="#e4ddd0"/><rect x="21" y="101" width="6" height="6" fill="#faf8f3" stroke="#d8d0c2"/>
+<g fill="#fffefb" stroke="#d8d0c2"><rect x="48" y="128" width="704" height="86" rx="14"/><rect x="48" y="254" width="704" height="170" rx="14"/><rect x="48" y="464" width="704" height="108" rx="14"/><rect x="48" y="612" width="704" height="108" rx="14"/></g>
+<g font-family="monospace" font-size="12" letter-spacing="1.1" fill="#c2410c"><text x="72" y="154">01 · QUESTION</text><text x="72" y="282">02 · WRITER / LLM ROLE</text><text x="72" y="492">03 · EMBEDDING</text><text x="72" y="640">04 · RETRIEVAL</text></g>
+<text x="72" y="187" font-size="24">“Find calls about pricing objections.”</text>
+<text x="72" y="314" font-size="24">Draft passages that might answer it</text>
+<text x="72" y="349" font-size="20" font-style="italic" fill="#5b564c">“The renewal costs more than we budgeted…”</text><text x="72" y="379" font-size="20" font-style="italic" fill="#5b564c">“Finance will not approve the proposal at that price…”</text><text x="72" y="405" font-size="16" fill="#5b564c">Hypothetical wording—not quotations from customer calls.</text>
+<text x="72" y="524" font-size="24">Embed the passages; average their vectors</text><text x="72" y="552" font-size="18" fill="#5b564c">A numeric search representation of passage-like language.</text>
+<text x="72" y="672" font-size="24">Compare with stored transcript chunks</text><text x="72" y="700" font-size="18" fill="#5b564c">Keep eligible candidates for ranking or broader scan results.</text>
+<g fill="none" stroke="#c2410c" stroke-width="1.6" marker-end="url(#a)"><path d="M400 216V246"/><path d="M400 426V456"/><path d="M400 574V604"/><path d="M400 722V752"/></g>
+<rect x="48" y="760" width="704" height="100" rx="14" fill="#1c1a16"/>
+<text x="72" y="789" font-size="12" font-family="monospace" letter-spacing="1.1" fill="#faf8f3">05 · EVIDENCE</text><text x="72" y="823" font-size="24" fill="#faf8f3">Return stored passages with their call IDs</text><text x="72" y="847" font-size="17" fill="#faf8f3">The reader can open the call and check the context.</text>
+<text x="48" y="905" font-size="18" fill="#5b564c">Generated text guides search. Stored transcripts supply the evidence.</text>
+</g></svg>

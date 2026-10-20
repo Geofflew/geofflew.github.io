@@ -5,6 +5,8 @@ const entries = [
   ['trustworthy-warehouse', 'Data systems', 'Shared definitions that preserve what customer data means.'],
   ['ask-the-warehouse', 'AI and data', 'Carry business context from a question into a useful, inspectable answer.'],
   ['automation-system', 'Automation', 'Carry requests through planning, approval, execution, and recovery.'],
+  ['call-transcript-search', 'Search and AI', 'Use HyDE to find how customers express an idea—and distinguish a shortlist from coverage.'],
+  ['customer-solutions-platform', 'Customer systems', 'Turn customer records into explainable signals, meaningful changes, and specific follow-up.'],
 ];
 const escape = s => s.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('"', '&quot;');
 const shell = (title, description, body, article = false) => `<!doctype html>
@@ -24,7 +26,7 @@ for (const [slug, category, description] of entries) {
   posts.push({ slug, category, description, title, minutes });
 }
 const listing = posts.map((p, i) => `<section class="entry"><span class="number">0${i + 1}</span><div><div class="eyebrow">${p.category} · ${p.minutes} min read</div><h2><a href="/${p.slug}/">${escape(p.title)}</a></h2><p>${p.description}</p><a class="button" href="/${p.slug}/">Read the essay →</a><a class="repo" href="https://github.com/Geofflew/${p.slug}">Code / ${p.slug} ↗</a></div></section>`).join('\n');
-const home = `<aside><div class="eyebrow">A working journal</div><h2 class="author">Geoffrey<br>Lew</h2><p>Notes on building data systems and automation that people can use.</p><a href="https://github.com/Geofflew">Code ↗</a></aside><div class="writing"><h1>How it works.<br><em>Why it matters.</em></h1>${listing}</div>`;
+const home = `<aside><div class="eyebrow">A working journal</div><h2 class="author">Geoffrey<br> Lew</h2><p>Notes on building data systems and automation that people can use.</p><a href="https://github.com/Geofflew">Code ↗</a></aside><div class="writing"><h1>How it works.<br><em>Why it matters.</em></h1>${listing}</div>`;
 await writeFile('index.html', shell('Field notes', 'Engineering field notes on data, AI, and automation by Geoffrey Lew.', home));
 await writeFile('.nojekyll', '');
-console.log('Built homepage and three full articles.');
+console.log(`Built homepage and ${posts.length} full articles.`);

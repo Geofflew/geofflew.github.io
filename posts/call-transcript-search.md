@@ -1,0 +1,65 @@
+# Search for the conversation, not just the words
+
+*HyDE uses a possible answer to help find actual evidence. The next question is whether someone needs a few useful conversations or a view across the whole period.*
+
+A product manager wants to understand objections to pricing. The evidence is somewhere in customer calls, but “pricing objections” is the manager's description of the topic. It may bear little resemblance to what anyone said.
+
+A customer might have said the renewal was higher than expected, finance would not approve the proposal, or spreadsheets were starting to look attractive again. Finding those conversations requires a connection between the question's vocabulary and the language of the evidence.
+
+A useful search system can help make that connection. But its responsibility does not end when it finds a convincing passage. If the manager then asks how widespread the concern is, a handful of relevant conversations becomes an incomplete answer to a different question.
+
+## Write something worth searching for
+
+One way to bridge the vocabulary gap is to ask an LLM to write passages that could answer the question. For pricing objections, it might produce: “The renewal costs more than we budgeted, and finance will not approve it at that price.” That sentence is hypothetical. Its purpose is to provide language to search with.
+
+This is the idea behind **HyDE, or Hypothetical Document Embeddings**. Instead of using only the short question, embed a hypothetical answer into a numeric vector and use that vector to retrieve related passages. An embedding represents text in a form that can be compared with the stored transcript chunks. [The original HyDE paper](https://aclanthology.org/2023.acl-long.99/) describes this generation-to-retrieval approach.
+
+![A question becomes hypothetical passages. Their embeddings are combined to search transcript chunks, and the result contains stored passages with call IDs.](/assets/call-hyde.svg)
+
+Writing several passages allows the search representation to include different expressions of the concern: a higher renewal, a refused budget, or a request for a discount. Embed each passage, average the vectors, and normalize the result so similarity comparisons use its direction. The retrieval query then compares that combined vector with the vectors stored alongside transcript chunks.
+
+The distinction between generated text and evidence is essential. A plausible sentence about a refused renewal is not a customer statement. Only a passage retrieved from a stored transcript should appear as evidence, with its call ID so the reader can open the surrounding conversation.
+
+That separation gives the model room to help express an idea without allowing its invented wording to become the answer's source material.
+
+## Use existing evidence to improve the search language
+
+The writer does not have to start from the question alone. A searchable store of short facts—objections, requests, or pain points—can retain quotes from the calls where those facts were recorded. Selecting a few relevant quotes gives the writer language already used in the corpus.
+
+For the pricing question, a quote about a renewal proposal might encourage a passage about renewal terms rather than a generic discussion of software prices. The quotes guide the writing. They do not establish that those are the only calls worth searching.
+
+This difference matters when designing retrieval. Passing three quotes to the writer supplies context; limiting the subsequent search to those three calls throws away the opportunity to find anything new. Likewise, a date range should filter the call records directly. Taking an arbitrary slice of extracted facts from that period and searching only their calls can exclude relevant conversations before similarity is ever calculated.
+
+The evaluation needs to respect the same distinction. A grounded query may retrieve the calls its quotes came from simply because their wording is now part of the query representation. To find out whether grounding helps discovery, also measure its results on calls that supplied no quotes. Otherwise, recognizing evidence already provided can look like finding new evidence.
+
+## Let each retrieval stage do a specific job
+
+Once the query represents the idea, the next task is selecting passages to read. A vector search can keep a broad candidate pool using a similarity floor, then retain the best chunk for each call. This prevents one long conversation with many similar chunks from filling the result list.
+
+A reranker can then compare the candidate passages with the original question and order them for the reader. These are different decisions: the first stage decides what is plausible enough to consider; the second decides what deserves attention first.
+
+Their scores need not mean the same thing. A cutoff chosen for cosine similarity cannot simply be reused on a reranker's output. Doing so can discard useful candidates after they have already survived retrieval. Keep the first floor broad enough to supply candidates, and evaluate any later threshold on the scores and task it actually governs.
+
+Some questions also contain terms that should survive exactly. An acronym or product name can occupy only a few words in a long transcript chunk. A separate keyword pass can find those terms through a full-text index. Because full-text stemming may treat “Reconciler” and “reconciled” alike, a literal whole-word check can distinguish a product name from a related verb.
+
+The two paths can then merge into one result per call, with literal matches first and the ranked vector results filling the remaining places. The user gets passages tied to identifiable conversations, rather than several overlapping snippets that appear to represent separate conversations.
+
+## Change the search when the question changes
+
+That shortlist is useful for reading. It does not answer “Find every conversation about pricing objections this quarter.” A list of ten good matches establishes neither that only ten exist nor that the omitted calls were considered.
+
+A broader search needs to visit the calls in the requested period. Prepare the HyDE vector and additional vectors for alternate phrasings of the question, then walk the calls in pages. Score each transcript chunk against those representations and collect calls that meet the matching rules. Explicit keyword matches can contribute through the same keyword path.
+
+Here, HyDE and question variants play complementary roles. HyDE writes possible answer passages; variants ask about the concern from different angles. Neither replaces the stored evidence, and the scan avoids the shortlist's top-ten cutoff.
+
+The work still needs a budget. Report the number of calls examined alongside the number in the date range. If processing stops early, say that the scan is incomplete. That gives the manager a concrete next step: narrow the period or arrange a larger scan.
+
+Even a completed scan has a precise meaning. It says the calls were visited, not that every meaningful statement was recognized. A call without transcript chunks provides nothing to score. Coverage and relevance are separate things to measure; a complete progress counter cannot substitute for either ingestion checks or relevance evaluation.
+
+## Make the evidence easier to explore
+
+For the product manager, the benefit is a shorter path from an idea to conversations worth hearing. They can ask in their own language, inspect the passages found, and open a call to understand the context rather than treating a generated summary as the source.
+
+When the question grows from “What are people saying?” to “How widespread is this?”, the system can make its search coverage visible. The result supports exploration without quietly turning a shortlist into a claim about the whole customer base.
+
+The [Call Transcript Search repository](https://github.com/Geofflew/call-transcript-search) provides a runnable companion with synthetic transcripts, scripted passage generation, local word-feature vectors, and a lexical reranker. It makes these retrieval and coverage decisions reproducible without a hosted model connection.
