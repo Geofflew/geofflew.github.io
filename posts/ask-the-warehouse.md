@@ -10,6 +10,8 @@ But suppose the forecasting product is sold under the name Horizon. Searching de
 
 The resulting SQL can be valid, permitted, and wrong. The missing step is the connection between what the person means and how the business records it. Building a useful assistant means making that connection explicit, delivering it to the model, and preserving it through the answer.
 
+![A question passes through relevant context and an LLM planner, SQL checks and selected critic review, restricted database execution, and an answer with visible gaps.](/assets/question-flow.svg)
+
 ## Give the planner the information the question needs
 
 The LLM's first role is a **planner**: it receives the question and relevant context, then proposes SQL. Alongside the query, it can state assumptions and identify parts of the request that the available data cannot answer.

@@ -8,6 +8,8 @@ An LLM can turn the request into a structured plan. That removes some translatio
 
 Building a useful automation system means handling that whole task. The language model helps interpret what someone wants; the application carries the work forward, remembers decisions, and establishes what actually happened.
 
+![An account reassignment becomes a saved proposal, receives human approval, runs conditional updates, and reports applied and skipped changes.](/assets/automation-flow.svg)
+
 ## Turn an intention into specific work
 
 For account reassignment, the planner needs to identify three things: the current owner, the region, and the destination owner. The application can then use a parameterized database query to find matching accounts. Each proposed change contains an account ID, its current owner, and its proposed owner.
