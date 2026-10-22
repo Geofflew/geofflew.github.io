@@ -1,5 +1,6 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { marked } from 'marked';
+import { readableMarkdown } from './markdown.mjs';
 
 const entries = [
   ['building-the-trust-layer-for-ai', 'AI Perspectives · Field guide', 'Canonical records, explicit rules, and human review: a practical guide to customer context that people and AI can inspect.', null],
@@ -12,10 +13,10 @@ const entries = [
   ['customer-solutions-platform', 'Customer systems', 'Turn customer records into explainable signals, meaningful changes, and specific follow-up.'],
 ];
 const escape = s => s.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('"', '&quot;');
-const shell = (title, description, body, article = false) => `<!doctype html>
+const shell = (title, description, body, article = false, markdownUrl = null) => `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${escape(title)} · Geoffrey Lew</title><meta name="description" content="${escape(description)}">
-<link rel="stylesheet" href="/assets/style.css"><link rel="icon" href="data:,">
+<link rel="stylesheet" href="/assets/style.css"><link rel="icon" href="data:,">${markdownUrl ? `\n<link rel="alternate" type="text/markdown" title="Markdown" href="${markdownUrl}">` : ''}
 </head><body><div class="page"><header><a class="brand" href="/"><span>g.</span> geoffrey_lew / notes</a><nav aria-label="Main navigation"><a href="/">Writing</a><a href="https://github.com/Geofflew">GitHub ↗</a></nav></header>
 <main class="${article ? 'reading' : 'notebook'}">${body}</main><footer><span>© 2026 Geoffrey Lew</span><span>Data · AI · Automation</span></footer></div></body></html>`;
 const posts = [];
@@ -24,13 +25,15 @@ for (const [slug, category, description, repo = slug] of entries) {
   const title = source.match(/^# (.+)$/m)[1];
   const minutes = Math.ceil(source.split(/\s+/).length / 200);
   await mkdir(slug, { recursive: true });
-  const body = `<a class="back" href="/">← All field notes</a><div class="eyebrow">${category} · ${minutes} min read</div><article>${marked.parse(source)}</article><a class="back" href="/">← More field notes</a>`;
-  await writeFile(`${slug}/index.html`, shell(title, description, body, true));
+  const markdownUrl = `/${slug}/index.md`;
+  const body = `<a class="back" href="/">← All field notes</a><div class="eyebrow">${category} · ${minutes} min read · <a href="${markdownUrl}" type="text/markdown">Read Markdown</a></div><article>${marked.parse(source)}</article><a class="back" href="/">← More field notes</a>`;
+  await writeFile(`${slug}/index.html`, shell(title, description, body, true, markdownUrl));
+  await writeFile(`${slug}/index.md`, readableMarkdown(source, slug));
   posts.push({ slug, category, description, title, minutes, repo });
 }
 const listing = posts.map((p, i) => `<section class="entry"><span class="number">0${i + 1}</span><div><div class="eyebrow">${p.category} · ${p.minutes} min read</div><h2><a href="/${p.slug}/">${escape(p.title)}</a></h2><p>${p.description}</p><a class="button" href="/${p.slug}/">Read the essay →</a>${p.repo ? `<a class="repo" href="https://github.com/Geofflew/${p.repo}">Code / ${p.repo} ↗</a>` : ''}</div></section>`).join('\n');
 const home = `<aside><div class="eyebrow">A working journal</div><h2 class="author">Geoffrey<br> Lew</h2><p>Notes on building data systems and automation that people can use.</p><a href="https://github.com/Geofflew">Code ↗</a></aside><div class="writing"><h1>How it works.<br><em>Why it matters.</em></h1>${listing}</div>`;
 await writeFile('index.html', shell('Field notes', 'Engineering field notes on data, AI, and automation by Geoffrey Lew.', home));
 await writeFile('.nojekyll', '');
-console.log(`Built homepage and ${posts.length} full articles.`);
+console.log(`Built homepage and ${posts.length} full articles in HTML and Markdown.`);
 
