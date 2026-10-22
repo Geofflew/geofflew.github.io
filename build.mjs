@@ -2,6 +2,7 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { marked } from 'marked';
 
 const entries = [
+  ['building-the-trust-layer-for-ai', 'AI Perspectives · Field guide', 'Canonical records, explicit rules, and human review: a practical guide to customer context that people and AI can inspect.', null],
   ['state-of-ai', 'AI in accounting', 'What turns capable models into dependable accounting work: context, evidence, and authority.', null],
   ['conversation-as-an-app', 'Conversational interfaces', 'Turn an answer into an interactive view of the records behind it.'],
   ['trustworthy-warehouse', 'Data systems', 'Shared definitions that preserve what customer data means.'],
@@ -32,3 +33,4 @@ const home = `<aside><div class="eyebrow">A working journal</div><h2 class="auth
 await writeFile('index.html', shell('Field notes', 'Engineering field notes on data, AI, and automation by Geoffrey Lew.', home));
 await writeFile('.nojekyll', '');
 console.log(`Built homepage and ${posts.length} full articles.`);
+
