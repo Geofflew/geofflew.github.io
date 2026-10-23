@@ -42,3 +42,59 @@ a{color:inherit;text-underline-offset:5px}.page{max-width:1180px;margin:auto;bac
 .reading article.close-agents th:first-child{width:29%}
 .reading article.close-agents>p:last-child{border-top:0;padding-top:0;font-size:16px;color:var(--ink);margin:24px 0}
 @media(max-width:700px){.reading article.close-agents th,.reading article.close-agents td{padding:8px}.reading article.close-agents table{font-size:14px}.reading article.close-agents th:first-child{width:34%}}
+
+/* A shared editorial grid: introduction, feature, and index use the same edges. */
+.notebook{display:block;padding:56px 52px 64px}
+.masthead{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.8fr);align-items:center;gap:64px;margin-bottom:40px}
+.masthead .writing>h1{margin:16px 0 0;font-size:clamp(44px,5.1vw,62px)}
+.masthead aside{border-left:1px solid var(--line);padding-left:32px}
+.masthead .author{font-size:24px;line-height:1.25;margin:0 0 12px}
+.masthead aside p{max-width:28ch;margin:0 0 16px}
+.featured{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;align-items:center;padding:30px}
+.featured h2{font-size:clamp(30px,3vw,38px)}
+.featured-copy .feature-label{margin-bottom:16px}
+.more-notes{width:100%;max-width:none;margin-top:48px}
+.entry{grid-template-columns:30px minmax(0,1fr);gap:18px}
+.entry p{max-width:64ch}
+@media(max-width:1000px){.notebook{padding:44px 36px 56px}.masthead{gap:36px;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}.masthead aside{padding-left:24px}.masthead .writing>h1{font-size:clamp(40px,5.4vw,54px)}.featured{padding:26px;gap:26px}.featured h2{font-size:30px}}
+@media(max-width:700px){.notebook{padding:32px 22px 40px}.masthead{grid-template-columns:1fr;gap:24px;margin-bottom:30px}.masthead .writing>h1{font-size:clamp(38px,9.5vw,58px);margin-top:12px}.notebook .masthead aside{display:block;border-left:0;border-top:1px solid var(--line);padding:20px 0 0}.masthead .author{font-size:21px;margin:0 0 8px}.masthead aside p{max-width:38ch;margin:0 0 10px}.featured{grid-template-columns:1fr;padding:22px;gap:24px}.featured-visual{grid-row:auto}.more-notes{margin-top:36px}.entry{grid-template-columns:22px minmax(0,1fr);gap:12px}}
+@media(max-width:380px){.notebook{padding-inline:16px}.featured{padding:18px}.featured h2{font-size:29px}}
+
+/* Small, intentional feedback. Content is always visible, including without JS. */
+a{transition:color 180ms ease,text-decoration-color 180ms ease}
+.button{transition:background-color 180ms ease,box-shadow 180ms ease,transform 180ms ease}
+.button span,.read-link span{display:inline-block;transition:transform 180ms ease}
+.featured-visual>a{transition:border-color 180ms ease,box-shadow 180ms ease}
+.entry{transition:border-color 180ms ease}
+a:focus-visible{color:var(--accent)}
+.button:focus-visible{color:var(--paper);background:var(--accent)}
+.button:focus-visible span,.read-link:focus-visible span{transform:translateX(3px)}
+.entry:focus-within{border-color:var(--accent)}
+@media(hover:hover) and (pointer:fine){
+ nav a:hover,.brand:hover,.repo:hover,.back:hover,.read-link:hover,figcaption a:hover{color:var(--accent)}
+ .button:hover{background:var(--accent);box-shadow:0 4px 12px rgba(28,26,22,.1);transform:translateY(-1px)}
+ .button:hover span,.read-link:hover span{transform:translateX(3px)}
+ .featured-visual>a:hover{border-color:#b9a992;box-shadow:0 3px 14px rgba(28,26,22,.07)}
+ .entry:hover{border-color:#b9a992}
+}
+/* More expressive feedback without continuous movement or layout shifts. */
+.featured,.entry{transition:transform 260ms cubic-bezier(.2,.7,.2,1),box-shadow 260ms ease,border-color 260ms ease}
+.featured-visual img{transition:transform 450ms cubic-bezier(.2,.7,.2,1)}
+nav a,.brand,.repo,.back,.read-link,.featured h2 a,.entry h3 a{
+ background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;
+ transition:background-size 240ms ease,color 180ms ease;text-decoration:none;
+}
+nav a:focus-visible,.brand:focus-visible,.repo:focus-visible,.back:focus-visible,.read-link:focus-visible,.featured h2 a:focus-visible,.entry h3 a:focus-visible{background-size:100% 1px}
+.featured:focus-within{box-shadow:0 9px 24px rgba(28,26,22,.08);border-color:#b9a992}
+.featured-visual>a:focus-visible img{transform:scale(1.025)}
+@media(hover:hover) and (pointer:fine){
+ .featured:hover{transform:translateY(-3px);box-shadow:0 9px 24px rgba(28,26,22,.08)}
+ .entry:hover{transform:translateY(-3px)}
+ .featured-visual>a:hover img{transform:scale(1.025)}
+ nav a:hover,.brand:hover,.repo:hover,.back:hover,.read-link:hover,.featured h2 a:hover,.entry h3 a:hover{background-size:100% 1px;text-decoration:none}
+}
+
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+ .button:hover,.button span,.read-link span,.featured:hover,.entry:hover,.featured-visual img{transform:none!important}
+}
