@@ -120,8 +120,6 @@ A cartographer brought the claims, threads and scenarios together into storyline
 
 Diagram 4: The full system. A research question and a seed concept map start the thesis. Three worker agents each propose one edit. The edit passes a source gate and a judge, is kept or reverted, and is logged. A reviewer reads the log and the thesis every ninety minutes and feeds verdicts into the judge and rule changes to the workers. A futurist writes pictures of 2031 and 2036 under a separate judge, and a picture that needs a missing idea opens a line of inquiry for the explorer. A cartographer groups the thesis, threads and pictures into storylines and writes the report. An orchestrator starts and restarts every agent.
 
-The whole system. The reviewer's verdicts flow back into the judge and its rule changes flow back to the workers, and a picture of the future that needs a missing claim opens a line of inquiry for the explorer.
-
 [View original diagram](https://geofflew.github.io/strategy-like-math/#diagram-4)
 
 ## What the research brought into focus

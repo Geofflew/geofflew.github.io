@@ -95,3 +95,10 @@ a:focus-visible{color:var(--accent)}
 
 /* User-requested field-guide variant: fourth diagram only. */
 .strategy-like-math .strategy-diagram:has(svg [data-role="paper-background"]),.strategy-like-math .strategy-diagram:has(svg [data-role="paper-background"]) figure{background:#faf8f3}
+
+/* Featured diagram: a compact text action, not the image-frame link treatment. */
+.featured-visual .strategy-diagram{margin:0}
+.featured-visual .strategy-diagram figure{margin:0;padding:0}
+.featured-visual .strategy-diagram svg{display:block;width:100%;height:auto}
+.featured-visual>a.read-link{display:inline-flex;align-items:center;gap:.35em;width:auto;max-width:100%;margin-top:14px;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;overflow:visible;font-size:13px;line-height:1.5;color:var(--quiet)}
+.featured-visual>a.read-link:hover,.featured-visual>a.read-link:focus-visible{border:0;box-shadow:none;color:var(--ink);text-decoration:underline}

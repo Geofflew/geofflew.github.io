@@ -297,7 +297,7 @@ A cartographer brought the claims, threads and scenarios together into storyline
 
 </g>
 </svg>
-<figcaption>The whole system. The reviewer's verdicts flow back into the judge and its rule changes flow back to the workers, and a picture of the future that needs a missing claim opens a line of inquiry for the explorer.</figcaption>
+
 </figure>
 
 ## What the research brought into focus

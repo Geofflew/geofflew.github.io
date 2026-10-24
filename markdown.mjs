@@ -13,8 +13,8 @@ function figureMarkdown(figure, slug, number) {
   if (/<svg\b/.test(figure)) {
     const label = attribute(figure.match(/<svg\b[^>]*>/)[0], 'aria-label');
     const caption = figure.match(/<figcaption>([\s\S]*?)<\/figcaption>/)?.[1];
-    if (!label || !caption) throw new Error('SVG figure requires a description and caption');
-    return `Diagram ${number}: ${escapeLabel(label)}\n\n${decode(caption)}\n\n[View original diagram](${origin}/${slug}/#diagram-${number})`;
+    if (!label) throw new Error('SVG figure requires a description');
+    return `Diagram ${number}: ${escapeLabel(label)}\n\n${caption ? decode(caption) + '\n\n' : ''}[View original diagram](${origin}/${slug}/#diagram-${number})`;
   }
   const images = [...figure.matchAll(/<img\b[^>]*>/g)];
   const caption = figure.match(/<figcaption>([\s\S]*?)<\/figcaption>/)?.[1];

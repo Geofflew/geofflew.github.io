@@ -45,3 +45,10 @@ test('retains inline SVG descriptions and links to unchanged visual diagrams', (
   assert.match(output, /https:\/\/geofflew.github.io\/strategy-like-math\/#diagram-1/);
   assert.doesNotMatch(output, /<svg/);
 });
+
+test('SVG figure may omit a visible caption while retaining its accessible description', () => {
+  const result = readableMarkdown('# Test\n\n<figure><svg aria-label="System overview"><text>Unchanged</text></svg></figure>\n', 'strategy-like-math');
+  assert.match(result, /Diagram 1: System overview/);
+  assert.match(result, /#diagram-1/);
+  assert.doesNotMatch(result, /undefined|<svg/);
+});
