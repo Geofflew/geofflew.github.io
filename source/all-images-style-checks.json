@@ -1,0 +1,24 @@
+[
+  {
+    "diagram": 1,
+    "nonstyle_and_text_equal": true,
+    "elements": 33,
+    "original_sha256": "a283dc0651e64d4dc6c4f891fea2682711e1d108563549d89e7df42c25582578",
+    "variant_sha256": "d1f0eea6c038e24be6850d1797bf696ef55121fcb2bd2cb71ba802d6dbcdb98e"
+  },
+  {
+    "diagram": 2,
+    "nonstyle_and_text_equal": true,
+    "elements": 45,
+    "original_sha256": "880d1d7e0fa9606689fcbe4076ddd45d9ec386afbee5d756c8565e9ffa324e47",
+    "variant_sha256": "90b48041877a8824f060f59cfc64eeffcbf206e89e36bf391a550e5ec0e1fff4"
+  },
+  {
+    "diagram": 3,
+    "nonstyle_and_text_equal": true,
+    "elements": 330,
+    "original_sha256": "a739ff0e6439aa53e979ff91e088996c0a786add89ef2884c464b9f696046aec",
+    "variant_sha256": "c4efb712bc9d2e0f0a1cbec6d0bbb3486424e352186dc4cdd987cf817aec6b59",
+    "canvas_exception": "Right viewBox extended1040\u21921080 and paper background accordingly; no original element coordinates changed, prevents original annotation clipping."
+  }
+]

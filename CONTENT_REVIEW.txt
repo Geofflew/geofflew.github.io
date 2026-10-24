@@ -1,0 +1,58 @@
+CONTENT REVIEW: STRATEGY LIKE MATH
+
+LATEST UPDATE — ALL FOUR IMAGES
+User approved the same field-guide styling for all four diagrams. Text, data, connections and every original element coordinate are unchanged. Diagram3 adds40units of blank right canvas only to prevent pre-existing annotation clipping. Distinct chart categories retain solid/dashed/marker differences and separate ink, rust, muted-brown and gray colors. All four standalone PNGs rendered and visually inspected. Original figures remain archived; the earlier visual-update notes below describe the prior stage.
+
+
+LATEST VISUAL UPDATE
+At the user’s explicit request, the fourth system diagram now uses the existing blog’s field-guide colors and Arial typography. All 109 original elements retain their exact text, coordinates, connections and non-style attributes; only styling and one paper-background rectangle changed. Other three figures are byte-identical. Original source remains archived. The standalone PNG rendered with Inkscape and was visually inspected. Browser-based desktop/mobile page QA remains unavailable as described below. Historical preservation notes below refer to the earlier draft.
+
+Reviewed October 24, 2026
+Source: https://claude.ai/artifact/YUgnHeG8YiMxvX91okdnWN
+
+STATUS
+Prepared as a review draft, not a validated experimental report. The source is accessible in the cloud browser. Its four illustrations are inline SVGs; all complete figure blocks, including captions, labels, paths, colors and geometry, are byte-for-byte unchanged. Original text remains in original.html and original.txt. The edited draft is reviewed-draft.html. changes.json records the initial editorial pass; revision-2-notes.txt summarizes the later reader-facing rewrite; visual-checksums.json records figure hashes.
+
+LATEST REVISION
+Latest user direction implemented: removed standalone limitations section; added short paragraphs and clear subheads; added four concrete research examples, labeled as design hypotheses rather than verified final-thesis membership; removed disputed quantitative claims from reader-facing prose; retained grounded inspirational ending. All four original figures/captions remain byte-for-byte unchanged. Numerical and methods reconciliation issues remain in content-review.txt, not in the article body. No publication performed.
+
+The review below records source-level issues and the initial editorial assessment. Disputed numeric results and standalone limitations are now absent from reader-facing prose. Unchanged diagrams retain original labels. The homepage now features this article with the unchanged fourth system diagram; the former featured article remains in the normal list.
+
+EDITORIAL ASSESSMENT
+The strongest story is the progression from a simple scalar reward to source checks, specialist workers and a broader reviewer, with concrete failures that forced redesign. Keep the three-round narrative and the candid failed coverage of “which tasks move first.” It is more convincing as a transparent engineering case study than as evidence that strategy can be objectively verified or that this system outperforms a person.
+
+CHANGES MADE
+1. Source gate: narrowed “real evidence” and “kept invented evidence out” to what the mechanism actually establishes: the retrieved page contains a recorded quote. This cannot establish source authority, context, entailment, independence, or truth. A page outage is an availability failure rather than evidence a claim is false.
+2. Reviewer: made explicit that it is a reviewer agent, not human validation. No observed gaming over 15 hours does not demonstrate resistance to gaming. Its caps and retirements still feed numerical incentives.
+3. Audit-control claim: corrected the claim that auditors may rely on automated controls only after a year unchanged. PCAOB AS 2201 B28–B32 permits benchmarking of qualifying unchanged automated controls when relevant general controls remain effective and tested. It is not a universal one-year waiting rule. Application to probabilistic AI requires separate analysis.
+   Primary source: https://pcaobus.org/oversight/standards/auditing-standards/details/AS2201
+4. Agent roles: the diagrams show three workers, A challenger, B explorer/synthesizer, C designer. Prose now matches this instead of accidentally describing a fourth separate synthesizer. Pruning is still described as an activity; confirm whether the named “pruning agent” was a separate process or the challenger role.
+5. Chronology: described the per-claim and word penalties as the revised apparatus, avoiding the impression they existed before the round-one observation that introduced them.
+6. Scientific caution: softened broad claims of fastest AI progress, judge consistency, universal finality in law, no sources for the far future, a small sample measuring the overall error rate, and agreement between AI agents never being evidence. No efficacy claim against a human baseline is supported.
+7. Technical corrections: a pairwise comparison may reduce noise but cannot eliminate it. A score cache must include rubric/model/context dependencies, not claim text alone if novelty and overlap depend on other claims. Uncovered research areas should remain explicitly unresolved rather than forcing a claim to exist.
+8. Future commitments: removed an unneeded promise to write another post; retained the unanswered comparison question.
+
+MUST RECONCILE BEFORE PUBLICATION
+A. Scoring denominator: seven qualities each 0–2 imply a maximum14, but the source says9/15 and8.6/15. Do not silently convert to /14 or assume a missing quality. The draft calls these logged scores and flags the denominator. Need scorer code or a rubric-version explanation.
+B. Claim counts: 50 claims ever existed minus26 merged/retired leaves24, not26 surviving. Also52 proposed additions and42 initially kept need distinction from unique claim IDs and seeded claims. Need log-based reconciliation of attempts, unique claims, accepted additions, merge outputs, retirements and final survivors. Original reported values are preserved, not corrected by guesswork.
+C. Decision rule: prose says whole-file score must rise; final diagram says that idea's own score must rise. Later text allows nondecreasing product-experience edits and reviewer-driven score losses. State the chronology and exceptions precisely. Do not change figures without the user's permission.
+D. Judge repetitions: prose says3, final figure says3–5. Need which version used which count, and whether scores compared under the same version.
+E. Reviewer identity and independence: provide the reviewer model, prompts, and who approved its rule changes. The source calls it an agent but also uses “someone” and “as a person.” Reviewer agreement is not ground truth.
+F. Measured experiment facts: 15 hours,470 iterations,26 surviving claims,57 threads,16 scenarios,672 source entries,14 thread promotions,6 scenario-originated claims,19/19 initial additions,11/29 borderline decisions and70-minute response are author-reported. The artifact has no linked run logs or source list, so these were not independently verified.
+G. Cite the underlying accountant field study, cross-provider error-correlation study, radiology paper rather than press release, the five-country legal sources and original audit-firm figures. The artifact currently includes no source hyperlinks. The draft only adds independently checked Karpathy and PCAOB links; it does not guess the missing studies.
+H. Source gate exposure: clarify extraction/normalization, archived snapshots, permissible mirrors, paywall/dynamic-page failures and whether quotes are checked in the source entry versus in the thesis itself. “We did not find” needs audited sample size or an explicit complete automated check.
+
+OPTIONAL IMPROVEMENTS
+Add a compact methods note: run date, models and settings, tool access, number of concurrent sessions, wall-time and token/API costs, scorer versions, exact acceptance rules, and the code/logs location. Report uncertainty and group sizes for the8.6 versus8.8 comparison; do not infer a meaningful quality difference from means alone. A blinded external review and comparison with one-agent/human baselines would help test future efficacy, but should not be claimed for this run.
+
+VISUAL HANDLING
+Do not redraw, recolor, normalize diagram numbers or rearrange diagrams. They are preserved exact. Some labels themselves encode unresolved method details; address those in surrounding text or obtain author clarification before publication. The dense branch chart may benefit from a full-size opening link or zoom while preserving its original bytes.
+
+RENDERING QA LIMITATION
+Desktop/mobile visual rendering is unverified. Direct Chromium could not launch because socket creation was denied. The supported cloud browser could not reach the local preview (ERR_CONNECTION_REFUSED), and file URLs are disallowed by its policy. No bypass was attempted. Build, structural tests and exact figure-byte checks passed; these do not substitute for visual QA. Please open the standalone preview locally and inspect desktop/mobile layouts before publication.
+
+PRIMARY SOURCES CHECKED
+Original artifact (full rendered text and SVG markup): https://claude.ai/artifact/YUgnHeG8YiMxvX91okdnWN
+Karpathy original repository: https://github.com/karpathy/autoresearch
+PCAOB AS2201 B28–B32: https://pcaobus.org/oversight/standards/auditing-standards/details/AS2201
+Anthropic model retirement documentation, used only to establish that schedules vary, not to import future model claims: https://docs.anthropic.com/en/docs/about-claude/model-deprecations

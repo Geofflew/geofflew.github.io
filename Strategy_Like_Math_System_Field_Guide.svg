@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-label="The full system. A research question and a seed concept map start the thesis. Three worker agents each propose one edit. The edit passes a source gate and a judge, is kept or reverted, and is logged. A reviewer reads the log and the thesis every ninety minutes and feeds verdicts into the judge and rule changes to the workers. A futurist writes pictures of 2031 and 2036 under a separate judge, and a picture that needs a missing idea opens a line of inquiry for the explorer. A cartographer groups the thesis, threads and pictures into storylines and writes the report. An orchestrator starts and restarts every agent." style="color:#1c1a16">
+<rect data-role="paper-background" x="0" y="0" width="1200" height="640" fill="#faf8f3"/>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"></path></marker>
+<marker id="arrow-warm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#c2410c"></path></marker>
+<marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5b564c"></path></marker>
+</defs>
+<g font-family="Arial, Helvetica, sans-serif" font-size="12" fill="currentColor" stroke-width="1.5">
+<rect x="30" y="16" width="1150" height="34" rx="6" fill="#fffefb" stroke="currentColor" stroke-dasharray="4 4" opacity=".55"></rect>
+<text x="605" y="38" text-anchor="middle" opacity=".75">Orchestrator: starts every agent, restarts the ones that stop, runs the reviewer and the cartographer on a timer</text>
+<rect x="45" y="90" width="230" height="100" rx="6" fill="#fffefb" stroke="currentColor" stroke-width="2"></rect>
+<text x="160" y="110" text-anchor="middle" font-weight="600" fill="#c2410c">Seed inputs</text>
+<text x="160" y="128" text-anchor="middle" font-size="11">the research question and its four parts:</text>
+<text x="160" y="142" text-anchor="middle" font-size="11">work, trust, structure, roles and economics</text>
+<text x="160" y="160" text-anchor="middle" font-size="11">29 starting concept notes</text>
+<text x="160" y="174" text-anchor="middle" font-size="11">and a first set of 2031 and 2036 views</text>
+<path d="M275 100 L295 72 L765 72 L765 108" fill="none" stroke="currentColor" marker-end="url(#arrow)"></path>
+<text x="530" y="66" text-anchor="middle" font-size="11">first ideas and concept notes</text>
+<line x1="160" y1="190" x2="160" y2="208" stroke="currentColor" marker-end="url(#arrow)"></line>
+<text x="168" y="203" font-size="11" opacity=".75">what to look for</text>
+<rect x="45" y="210" width="230" height="62" rx="6" fill="#fffefb" stroke="currentColor"></rect>
+<text x="160" y="227" text-anchor="middle" font-weight="600" fill="#c2410c">A  challenger</text>
+<text x="160" y="243" text-anchor="middle" font-size="11" opacity=".85">finds the fact that would break an idea,</text>
+<text x="160" y="256" text-anchor="middle" font-size="11" opacity=".85">replaces weak sources with the original,</text>
+<text x="160" y="268" text-anchor="middle" font-size="11" opacity=".85">merges or retires overlapping ideas</text>
+<rect x="45" y="280" width="230" height="62" rx="6" fill="#fffefb" stroke="currentColor"></rect>
+<text x="160" y="297" text-anchor="middle" font-weight="600" fill="#c2410c">C  designer</text>
+<text x="160" y="313" text-anchor="middle" font-size="11" opacity=".85">writes what the preparer, controller or</text>
+<text x="160" y="326" text-anchor="middle" font-size="11" opacity=".85">auditor actually does, step by step,</text>
+<text x="160" y="338" text-anchor="middle" font-size="11" opacity=".85">once the agent is in the work</text>
+<rect x="45" y="350" width="230" height="62" rx="6" fill="#fffefb" stroke="currentColor"></rect>
+<text x="160" y="367" text-anchor="middle" font-weight="600" fill="#c2410c">B  explorer</text>
+<text x="160" y="383" text-anchor="middle" font-size="11" opacity=".85">brings in facts from laws, standards,</text>
+<text x="160" y="396" text-anchor="middle" font-size="11" opacity=".85">studies and shipped products, and joins</text>
+<text x="160" y="408" text-anchor="middle" font-size="11" opacity=".85">two ideas into the one they imply</text>
+<rect x="45" y="428" width="160" height="36" rx="6" fill="#fffefb" stroke="currentColor" stroke-dasharray="3 3"></rect>
+<text x="125" y="443" text-anchor="middle" font-size="11" opacity=".8">search agents fetch the</text>
+<text x="125" y="456" text-anchor="middle" font-size="11" opacity=".8">pages and copy the quotes</text>
+<line x1="125" y1="428" x2="125" y2="414" stroke="currentColor" marker-end="url(#arrow)"></line>
+<line x1="275" y1="381" x2="318" y2="381" stroke="currentColor" marker-end="url(#arrow)"></line>
+<text x="297" y="372" text-anchor="middle" font-size="11">one edit</text>
+<rect x="320" y="90" width="270" height="300" rx="8" fill="#fffefb" stroke="#c2410c" stroke-width="2"></rect>
+<text x="455" y="112" text-anchor="middle" font-weight="600" fill="#c2410c">Scorer, the reward</text>
+<rect x="338" y="126" width="234" height="60" rx="5" fill="#fffefb" stroke="currentColor"></rect>
+<text x="455" y="145" text-anchor="middle" font-weight="600" fill="#c2410c">1. Source gate</text>
+<text x="455" y="162" text-anchor="middle" font-size="11" opacity=".85">every cited page must fetch and every</text>
+<text x="455" y="176" text-anchor="middle" font-size="11" opacity=".85">quote must appear word for word</text>
+<line x1="455" y1="186" x2="455" y2="202" stroke="currentColor" marker-end="url(#arrow)"></line>
+<rect x="338" y="204" width="234" height="84" rx="5" fill="#fffefb" stroke="currentColor"></rect>
+<text x="455" y="223" text-anchor="middle" font-weight="600" fill="#c2410c">2. Judge, three to five readings</text>
+<text x="455" y="240" text-anchor="middle" font-size="11" opacity=".85">scores novelty, mechanism, specificity,</text>
+<text x="455" y="254" text-anchor="middle" font-size="11" opacity=".85">consequence, tension, evidence and reach,</text>
+<text x="455" y="268" text-anchor="middle" font-size="11" opacity=".85">then charges 4 per idea and 1 per 200 words</text>
+<line x1="455" y1="288" x2="455" y2="304" stroke="currentColor" marker-end="url(#arrow)"></line>
+<rect x="338" y="306" width="234" height="60" rx="5" fill="#fffefb" stroke="currentColor"></rect>
+<text x="455" y="325" text-anchor="middle" font-weight="600" fill="#c2410c">3. Keep or revert</text>
+<text x="455" y="342" text-anchor="middle" font-size="11" opacity=".85">the edit stays only if that idea's</text>
+<text x="455" y="356" text-anchor="middle" font-size="11" opacity=".85">own score rose</text>
+<rect x="650" y="110" width="230" height="80" rx="8" fill="#fffefb" stroke="currentColor" stroke-width="2"></rect>
+<text x="765" y="138" text-anchor="middle" font-weight="600" fill="#c2410c">Thesis</text>
+<text x="765" y="157" text-anchor="middle" font-size="11" opacity=".85">the current set of about 25 ideas,</text>
+<text x="765" y="171" text-anchor="middle" font-size="11" opacity=".85">each resting on quoted sources</text>
+<line x1="590" y1="320" x2="648" y2="172" stroke="currentColor" marker-end="url(#arrow)"></line>
+<text x="602" y="238" font-size="11">kept</text>
+<rect x="650" y="250" width="230" height="56" rx="6" fill="#fffefb" stroke="currentColor"></rect>
+<text x="765" y="272" text-anchor="middle" font-weight="600" fill="#c2410c">Results log</text>
+<text x="765" y="290" text-anchor="middle" font-size="11" opacity=".85">every attempt, kept or reverted, and why</text>
+<line x1="590" y1="338" x2="648" y2="286" stroke="currentColor" marker-end="url(#arrow)"></line>
+<text x="608" y="326" font-size="11">logged</text>
+<rect x="650" y="420" width="230" height="100" rx="8" fill="#fffefb" stroke="#c2410c" stroke-width="2"></rect>
+<text x="765" y="442" text-anchor="middle" font-weight="600" fill="#c2410c">E  reviewer, every 90 minutes</text>
+<text x="765" y="461" text-anchor="middle" font-size="11" opacity=".85">reads the log and the thesis as a person,</text>
+<text x="765" y="476" text-anchor="middle" font-size="11" opacity=".85">says which ideas are real and which gamed,</text>
+<text x="765" y="491" text-anchor="middle" font-size="11" opacity=".85">rewrites the rules and sets directions</text>
+<line x1="765" y1="306" x2="765" y2="418" stroke="currentColor" marker-end="url(#arrow)"></line>
+<text x="773" y="366" font-size="11">reads</text>
+<path d="M650 440 L530 440 L530 392" fill="none" stroke="#c2410c" marker-end="url(#arrow-warm)"></path>
+<text x="590" y="433" text-anchor="middle" font-size="11" fill="#c2410c">verdicts</text>
+<text x="642" y="456" text-anchor="end" font-size="11" fill="#c2410c">weak idea capped,</text>
+<text x="642" y="470" text-anchor="end" font-size="11" fill="#c2410c">dead idea scores 0</text>
+<path d="M765 520 L765 572 L30 572 L30 311 L43 311" fill="none" stroke="#c2410c" marker-end="url(#arrow-warm)"></path>
+<text x="560" y="565" text-anchor="middle" font-size="11" fill="#c2410c">rule changes and directions to the workers</text>
+<rect x="45" y="490" width="465" height="60" rx="8" fill="#fffefb" stroke="#5b564c" stroke-width="2"></rect>
+<text x="277" y="511" text-anchor="middle" font-weight="600" fill="#5b564c">Threads, the wide web</text>
+<text x="277" y="528" text-anchor="middle" font-size="11" opacity=".85">every line of inquiry not yet in the thesis, uncapped,</text>
+<text x="277" y="542" text-anchor="middle" font-size="11" opacity=".85">where reverted and retired ideas land instead of being lost</text>
+<line x1="455" y1="390" x2="455" y2="488" stroke="#5b564c" marker-end="url(#arrow-teal)"></line>
+<text x="463" y="442" font-size="11" fill="#5b564c">reverted</text>
+<line x1="240" y1="490" x2="240" y2="414" stroke="#5b564c" marker-end="url(#arrow-teal)"></line>
+<text x="248" y="480" font-size="11" fill="#5b564c">next add drawn from here</text>
+<rect x="905" y="90" width="260" height="110" rx="8" fill="#fffefb" stroke="currentColor" stroke-width="2"></rect>
+<text x="1035" y="112" text-anchor="middle" font-weight="600" fill="#c2410c">F  futurist</text>
+<text x="1035" y="131" text-anchor="middle" font-size="11" opacity=".85">writes pictures of 2031 and 2036,</text>
+<text x="1035" y="146" text-anchor="middle" font-size="11" opacity=".85">eight per year, made to disagree,</text>
+<text x="1035" y="161" text-anchor="middle" font-size="11" opacity=".85">judged for coherence rather than sources,</text>
+<text x="1035" y="176" text-anchor="middle" font-size="11" opacity=".85">each naming the ideas it stands on</text>
+<line x1="880" y1="150" x2="903" y2="150" stroke="currentColor" marker-end="url(#arrow)"></line>
+<text x="891" y="141" text-anchor="middle" font-size="11">anchors</text>
+<path d="M1165 150 L1185 150 L1185 605 L300 605 L300 552" fill="none" stroke="currentColor" stroke-dasharray="5 4" marker-end="url(#arrow)"></path>
+<text x="742" y="621" text-anchor="middle" font-size="11" opacity=".85">a picture that needs an idea the thesis lacks opens a line of inquiry for the explorer, and six ideas arrived this way</text>
+<rect x="905" y="300" width="260" height="90" rx="8" fill="#fffefb" stroke="currentColor" stroke-width="2"></rect>
+<text x="1035" y="322" text-anchor="middle" font-weight="600" fill="#c2410c">D  cartographer</text>
+<text x="1035" y="341" text-anchor="middle" font-size="11" opacity=".85">every 40 minutes groups the thesis,</text>
+<text x="1035" y="356" text-anchor="middle" font-size="11" opacity=".85">threads and pictures into storylines</text>
+<text x="1035" y="371" text-anchor="middle" font-size="11" opacity=".85">and writes the report in plain words</text>
+<path d="M880 175 L892 175 L892 345 L903 345" fill="none" stroke="currentColor" marker-end="url(#arrow)"></path>
+<line x1="1035" y1="200" x2="1035" y2="298" stroke="currentColor" marker-end="url(#arrow)"></line>
+<text x="1043" y="253" font-size="11">pictures</text>
+
+</g>
+</svg>
