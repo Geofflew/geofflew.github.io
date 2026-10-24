@@ -9,7 +9,13 @@ const escapeLabel = text => decode(text).replace(/([\\\[\]])/g, '\\$1');
 
 // The article sources use HTML figures for layout. Keep their descriptive alt
 // text and captions in the plain Markdown edition, without the layout markup.
-function figureMarkdown(figure) {
+function figureMarkdown(figure, slug, number) {
+  if (/<svg\b/.test(figure)) {
+    const label = attribute(figure.match(/<svg\b[^>]*>/)[0], 'aria-label');
+    const caption = figure.match(/<figcaption>([\s\S]*?)<\/figcaption>/)?.[1];
+    if (!label || !caption) throw new Error('SVG figure requires a description and caption');
+    return `Diagram ${number}: ${escapeLabel(label)}\n\n${decode(caption)}\n\n[View original diagram](${origin}/${slug}/#diagram-${number})`;
+  }
   const images = [...figure.matchAll(/<img\b[^>]*>/g)];
   const caption = figure.match(/<figcaption>([\s\S]*?)<\/figcaption>/)?.[1];
   if (images.length !== 1 || !caption) throw new Error('Expected one image and caption per figure');
@@ -27,11 +33,19 @@ function figureMarkdown(figure) {
 
 export function readableMarkdown(source, slug) {
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) throw new Error('Invalid article slug');
+  // This article's untouched inline SVGs contain blank lines, so Markdown's
+  // block lexer can split a figure. Convert its known visual blocks first.
+  if (slug === 'strategy-like-math') {
+    let diagram = 0;
+    source = source.replace(/<figure>[\s\S]*?<\/figure>/g,
+      figure => figureMarkdown(figure, slug, ++diagram));
+  }
+  let figureNumber = 0;
   const body = marked.lexer(source).map(token => {
     // Do not alter examples inside fenced or indented code blocks.
     if (token.type === 'code') return token.raw;
     const rewrite = raw => raw
-      .replace(/<figure\b[^>]*>[\s\S]*?<\/figure>/g, figureMarkdown)
+      .replace(/<figure\b[^>]*>[\s\S]*?<\/figure>/g, figure => figureMarkdown(figure, slug, ++figureNumber))
       .replace(/\]\((\/(?!\/)[^\s)]*)(?=[\s)])/g, (_, path) => `](${absolute(path)}`);
     const codeSpans = [];
     marked.walkTokens([token], child => {

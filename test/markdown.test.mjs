@@ -36,3 +36,12 @@ test('rejects invalid slugs and figures without descriptive alt text', () => {
   assert.throws(() => readableMarkdown('# Title\n', '../bad'), /Invalid article slug/);
   assert.throws(() => readableMarkdown('# Title\n\n<figure><img src="/a.png"><figcaption>A caption</figcaption></figure>\n', 'field-note'), /descriptive alt/);
 });
+
+test('retains inline SVG descriptions and links to unchanged visual diagrams', () => {
+  const source = '# Test\n\n<figure><svg aria-label="Original diagram"><text>Unchanged</text></svg><figcaption>Original caption.</figcaption></figure>\n';
+  const output = readableMarkdown(source, 'strategy-like-math');
+  assert.match(output, /Diagram 1: Original diagram/);
+  assert.match(output, /Original caption\./);
+  assert.match(output, /https:\/\/geofflew.github.io\/strategy-like-math\/#diagram-1/);
+  assert.doesNotMatch(output, /<svg/);
+});
