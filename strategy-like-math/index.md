@@ -173,3 +173,5 @@ That combination suggests a useful direction for AI-assisted strategy: research 
 We still have to decide which ideas deserve to shape a product. But a system that helps us ask sharper questions, connect findings and expose weak arguments can make that decision more informed.
 
 The opportunity is to make research something we can keep improving, alongside the products we build.
+
+[Code / agent-research ↗](https://github.com/Geofflew/agent-research)
